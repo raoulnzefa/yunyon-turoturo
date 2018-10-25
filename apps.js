@@ -22,10 +22,10 @@ app.set('views', path.join(__dirname, 'servers/views'));
 app.set('view engine', 'pug');
 
 app.use('/', (req, res, next) => {
-    req.viewModel = {
-      title: 'Yunyon - Online Shopping'
-    };
-    next();
+  req.viewModel = {
+    title: 'Yunyon - Online Shopping'
+  };
+  next();
 });
 app.use('/', indexRouter);
 app.use('/products', productsRouter);

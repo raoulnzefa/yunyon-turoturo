@@ -17,7 +17,7 @@
           price: self.price,
           quantity: self.quantity
         };
-        axios.post('/products', productData)
+        axios.post('/', productData)
           .then(res => {
             self.products = res.data;
             self.clear();
