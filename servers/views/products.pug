@@ -26,6 +26,23 @@ html(lang="en")
           input.form-control#quantity(type="text" v-model="quantity")
         .form-group
           button.btn.btn-primary(type="button" v-on:click="addProduct") Add Product
+      section
+        table.table#notesTable
+          tr
+            th ID
+            th Product Name
+            th Category
+            th Price
+            th Quantity
+            th Actions
+          tr(v-for="product in products")
+            td {{ product.productName }}
+            td {{ product.category }}
+            td {{ product.price }}
+            td {{ product.quantity }}
+            td
+              button(v-on:click="deleteProduct(product)") Delete
+              button(v-on:click="updateProduct(product") Edit
   
   script(src="/axios.min.js")
   script(src='/vue.js')
