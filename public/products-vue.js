@@ -1,6 +1,6 @@
 (function() {
-  var products = new Vue({
-    el: '#products',
+  var productVue = new Vue({
+    el: '#productVue',
     data: {
       productName: null,
       category: null,
@@ -38,7 +38,7 @@
       },
       updateProduct: function(product) {
         var self = this;
-        axios.put('/products' + product.id)
+        axios.put('/products/' + product.id)
           .then(res => {
             for(var i = 0; i < self.products.length; i++) {
               if(Number(self.products[i].id) === Number(product.id)) {
@@ -53,7 +53,7 @@
       },
       deleteProduct: function(product) {
         var self = this;
-        axios.delete('/products' + product.id)
+        axios.delete('/products/' + product.id)
           .then(res => {
             var index = -1;
             for(var i = 0; i < self.product.length; ++i) {
@@ -69,5 +69,5 @@
       }
     }
   });
-  console.log(products);
+  console.log(productVue);
 })();
