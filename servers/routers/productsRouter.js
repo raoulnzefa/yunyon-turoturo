@@ -28,8 +28,8 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  let id = req.params.id;
-  let products = store.get('products');
+  const id = req.params.id;
+  const products = store.get('products');
 
   for(let i = 0; i < products.length; i++) {
     if(products[i].id === id) {

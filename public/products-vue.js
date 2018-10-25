@@ -30,7 +30,10 @@
         axios.post('/products', productData)
           .then(res => {
             self.products = res.data;
-            self.clear();
+            self.productName = null;
+            self.category = null;
+            self.price = null;
+            self.quantity = null;
           })
           .catch(err => {
             console.log(err);
@@ -38,18 +41,10 @@
       },
       updateProduct: function(product) {
         var self = this;
-        axios.put('/products/' + product.id)
-          .then(res => {
-            for(var i = 0; i < self.products.length; i++) {
-              if(Number(self.products[i].id) === Number(product.id)) {
-                self.products = res.data;
-                break;
-              }
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
+        self.productName = product.productName;
+        self.category = product.category;
+        self.price = product.price;
+        self.quantity = product.quantity;
       },
       deleteProduct: function(product) {
         var self = this;
@@ -66,6 +61,7 @@
           })
           .catch(err => {
           });
+        location.reload();
       }
     }
   });
