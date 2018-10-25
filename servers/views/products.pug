@@ -9,12 +9,12 @@ html(lang="en")
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous")
 
   body
-    main(role="main" class="container")
+    main#products(role="main" class="container")
       h1 Add Product
-      form(action="/products" method="POST")
+      form(action="/" method="POST")
         .form-group
           label Product Name
-          input.form-control#productName(type="text" v-model="title")
+          input.form-control#productName(type="text" v-model="productName")
         .form-group
           label Category
           input.form-control#category(type="text" v-model="category")
