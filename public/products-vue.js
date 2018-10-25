@@ -10,14 +10,14 @@
     },
     methods: {
       addProduct: function() {
-        let self = this;
-        let productData = {
+        var self = this;
+        var productData = {
           productName: self.productName,
           category: self.category,
           price: self.price,
           quantity: self.quantity
         };
-        axios.post('/', productData)
+        axios.post('/products', productData)
           .then(res => {
             self.products = res.data;
             self.clear();
