@@ -27,4 +27,31 @@ router.post('/', (req, res) => {
   res.json(products);
 });
 
+router.put('/:id', (req, res) => {
+  let id = req.params.id;
+  let products = store.get('products');
+
+  for(let i = 0; i < products.length; i++) {
+    if(products[i].id === id) {
+      products[i].productName = req.body.productName;
+      products[i].category = req.body.category;
+      products[i].price = req.body.price;
+      products[i].quantity = req.body.quantity;
+      break;
+    }
+  }
+
+  store.set('products', products);
+  res.json(products);
+});
+
+router.delete('/:id', (req, res) => {
+  const id = req.params.id;
+  const products = store.get('products');
+  const newProducts = products.filter(note => Number(note.id) !== Number(id));
+
+  store.set('products', newProducts);
+  res.json(newProducts);
+});
+
 module.exports = router;
