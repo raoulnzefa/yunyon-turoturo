@@ -1,6 +1,6 @@
 (function() {
-  var products = new Vue({
-    el: '#products',
+  var productsVue = new Vue({
+    el: '#productsVue',
     data: {
       productName: null,
       category: null,
@@ -8,16 +8,27 @@
       quantity: null,
       products: []
     },
+    created: function() {
+      var self = this;
+      axios.get('http://localhost:5000/api/products')
+        .then(function(res) {
+          console.log("test");
+          self.products = res.data;
+        })
+        .catch(function(err) {
+          self.products = [];
+        });
+    },
     methods: {
       addProduct: function() {
-        let self = this;
-        let productData = {
+        var self = this;
+        var productData = {
           productName: self.productName,
           category: self.category,
           price: self.price,
           quantity: self.quantity
         };
-        axios.post('/', productData)
+        axios.post('/products', productData)
           .then(res => {
             self.products = res.data;
             self.clear();

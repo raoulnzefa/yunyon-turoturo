@@ -3,13 +3,14 @@
  */
 const express = require('express');
 const morgan = require('morgan');
-const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const app = express();
 const port = 5000;
 
 const indexRouter = require('./servers/routers/indexRouter');
 const productsRouter = require('./servers/routers/productsRouter');
+const productsAPI = require('./servers/apis/products-api');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -29,6 +30,7 @@ app.use('/', (req, res, next) => {
 });
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
+app.use('/api/products', productsAPI);
 
 app.listen(port, (err) => {
   if(err) { return console.error(err); }

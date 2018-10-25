@@ -6,14 +6,37 @@ html(lang="en")
   // FONTS INITIALIZATION
   link(href='https://fonts.googleapis.com/css?family=Ubuntu', rel='stylesheet')
   // END OF FONTS INITIALIZATION
+  main#productsVue(role="main" class="container")
 .card.text-white.bg-dark.mb-3(style='height: 100vh')
   .card-header(style="font-size: 22px; font-family: 'Ubuntu', sans-serif;")
     img(src='./resources/images/yunyon.png')
     | &emsp;Yun-yon Online Shop
     span(style='position: absolute; left: 92%')
       button.btn.btn-primary(type='button'
-            v-on:click="logIn") Log In
+            v-on:click="logIn") Sign Up
   .card-body
-    .card-title Body
+    .card-title
+    section
+        table.table#productsTable
+          tr
+            th ID
+            th Product Name
+            th Category
+            th Price
+            th Quantity
+            th Action
+          tr(v-for="product in products")
+            td {{ product.id }}
+            td {{ product.name }}
+            td {{ product.category }}
+            td {{ product.price }}
+            td {{ product.quantity }}
+            td
+              button(v-on:click="deleteProduct(product)") Update
     i.fa.fa-home.fa-2x.text-primary
   .card-footer.text-muted UnionBank Blockchain Institute
+
+script(src="/axios.min.js")
+script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+script(src="/products-vue.js")
+
