@@ -4,8 +4,9 @@
 const express = require('express');
 const router = express.Router(); //eslint-disable-line
 
-router.get('/', (req, res) => {
-  // code here
+router.get('/', function getIndexPage(req, res) {
+  let viewModel = req.viewModel;
+  res.render('index.pug', viewModel);
 });
 
 router.post('/', (req, res) => {
