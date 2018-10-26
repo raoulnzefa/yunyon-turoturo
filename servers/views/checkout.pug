@@ -10,10 +10,10 @@ html(lang="en")
     link(href='https://fonts.googleapis.com/css?family=Ubuntu', rel='stylesheet')
     // END OF FONTS INITIALIZATION
   body
-    main#indexVue(role="main" class="container")
+    main#checkoutVue(role="main" class="container")
       .card-header(style="font-size: 22px; font-family: 'Ubuntu', sans-serif;")
       img(src='./resources/images/yunyon.png')
-      | &emsp;Yun-yon Online Shop
+      span(style="font-size: 22px; font-family: 'Ubuntu', sans-serif;")| &emsp;Yun-yon Online Shop - Checkout
       span(style='position: absolute; left: 92%')
       .card-body
       .card-title
@@ -40,4 +40,4 @@ html(lang="en")
 
   script(src="/axios.min.js")
   script(src="/vue.js")
-  script(src="/index-vue.js")
+  script(src="/checkout-vue.js")

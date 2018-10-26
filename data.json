@@ -1,3 +1,18 @@
 {
-	"products": []
+	"products": [
+		{
+			"id": 1,
+			"productName": "dsa",
+			"category": "dsa",
+			"price": "dsa",
+			"quantity": "1"
+		},
+		{
+			"id": 3,
+			"productName": "dsa",
+			"category": "asd",
+			"price": "1",
+			"quantity": "1"
+		}
+	]
 }

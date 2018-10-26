@@ -17,6 +17,29 @@
         .catch(err => {
           self.products = [];
         });
+    },
+    methods: {
+      buyProduct: function(product) {
+        var self = this;
+        var productData = {
+          id: product.id,
+          productName: product.productName,
+          category: product.category,
+          price: product.price,
+          quantity: product.quantity
+        };
+        axios.post('/checkout', productData)
+          .then(res => {
+            console.log(res);
+            //product.data.replace('/checkout');
+            location.replace('/checkout');
+          })
+          .catch(err => {
+            console.log('test23');
+          });
+          //location.reload();
+          
+      }
     }
   });
   console.log(indexVue);

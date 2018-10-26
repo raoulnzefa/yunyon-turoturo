@@ -31,6 +31,7 @@
           .then(res => {
             self.products = res.data;
             self.clear();
+
           })
           .catch(err => {
             console.log(err);
@@ -66,8 +67,9 @@
           })
           .catch(err => {
           });
+          location.reload();
       }
-    }
+    },
   });
   console.log(productVue);
 })();

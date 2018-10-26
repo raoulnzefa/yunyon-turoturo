@@ -10,6 +10,7 @@ const port = 5000;
 
 const indexRouter = require('./servers/routers/indexRouter');
 const productsRouter = require('./servers/routers/productsRouter');
+const checkoutRouter = require('./servers/routers/checkoutRouter');
 const productsAPI = require('./servers/apis/products-api');
 
 app.use(morgan('dev'));
@@ -28,8 +29,10 @@ app.use('/', (req, res, next) => {
   };
   next();
 });
+
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
+app.use('/checkout', checkoutRouter);
 app.use('/api/products', productsAPI);
 
 app.listen(port, (err) => {
@@ -37,4 +40,3 @@ app.listen(port, (err) => {
   console.log(`Listening to ${port}...`);
 });
 
-app.use('/', indexRouter);
