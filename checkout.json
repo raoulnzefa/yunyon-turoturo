@@ -1,0 +1,18 @@
+{
+	"checkoutItems": [
+		{
+			"id": 1,
+			"productName": "fdsf",
+			"category": "fds",
+			"price": "111",
+			"quantity": "11"
+		},
+		{
+			"id": 2,
+			"productName": "qweqwe",
+			"category": "qweqwe",
+			"price": "123",
+			"quantity": "1"
+		}
+	]
+}

@@ -12,6 +12,7 @@ const indexRouter = require('./servers/routers/indexRouter');
 const productsRouter = require('./servers/routers/productsRouter');
 const checkoutRouter = require('./servers/routers/checkoutRouter');
 const productsAPI = require('./servers/apis/products-api');
+const checkoutAPI = require('./servers/apis/checkout-api');
 
 //app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,6 +35,7 @@ app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/api/products', productsAPI);
+app.use('/api/checkout', checkoutAPI);
 
 app.listen(port, (err) => {
   if(err) { return console.error(err); }

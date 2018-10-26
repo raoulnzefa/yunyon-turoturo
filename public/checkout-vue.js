@@ -6,17 +6,17 @@
         category: null,
         price: null,
         quantity: null,
-        products: []
+        checkoutItems: []
       },
       created: function() {
         var self = this;
         console.log(self.id);
-        axios.get('http://localhost:5000/api/products')
+        axios.get('http://localhost:5000/api/checkout')
           .then(res => {
-            self.products = res.data;
+            self.checkoutItems = res.data;
           })
           .catch(err => {
-            self.products = [];
+            self.checkoutItems = [];
           });
       },
       methods: {

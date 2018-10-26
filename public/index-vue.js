@@ -25,6 +25,13 @@
       buyProduct: function(product) {
         var self = this;
         console.log(product);
+        axios.post('/api/checkout', product)
+          .then(res => {
+            console.log('test');
+          })
+          .catch(err => {
+            console.log(err);
+          });
       }
     }
   });

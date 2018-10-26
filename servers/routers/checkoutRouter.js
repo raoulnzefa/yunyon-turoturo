@@ -13,7 +13,11 @@ router.get('/', function getIndexPage(req, res) {
 });
 
 router.post('/', (req, res) => {
-  res.send('test');
+  let checkoutItems = store.get('checkout');
+  products.push(newProduct);
+  store.set('products', products);
+
+  res.json(products);
 });
 
 

@@ -23,17 +23,18 @@ html(lang="en")
             th ID
             th Product Name
             th Category
-            th Price
+            th Price /ea
             th Quantity
-            th Action
-          tr(v-for="product in products")
-            td {{ product.id }}
-            td {{ product.productName }}
-            td {{ product.category }}
-            td {{ product.price }}
-            td {{ product.quantity }}
+            th Total Price
+          tr(v-for="checkoutItem in checkoutItems")
+            td {{ checkoutItem.id }}
+            td {{ checkoutItem.productName }}
+            td {{ checkoutItem.category }}
+            td {{ checkoutItem.price }}
             td
-              button(v-on:click="buyProduct(product)") Buy
+              input(id="" type="number" v-model="quantity" style="width:50px" value="1" min="1")
+        button(v-on:click="checkoutProducts(product)" style="float:right") Checkout
+
 
       i.fa.fa-home.fa-2x.text-primary
       .card-footer.text-muted UnionBank Blockchain Institute
