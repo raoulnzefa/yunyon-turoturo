@@ -24,6 +24,7 @@ html(lang="en")
             th Product Name
             th Category
             th Price /ea
+            th Stock
             th Quantity
             th Total Price
           tr(v-for="checkoutItem in checkoutItems")
@@ -31,10 +32,10 @@ html(lang="en")
             td {{ checkoutItem.productName }}
             td {{ checkoutItem.category }}
             td {{ checkoutItem.price }}
+            td {{ checkoutItem.quantity }}
             td
-              input(id="" type="number" v-model="quantity" style="width:50px" value="1" min="1")
-        button(v-on:click="checkoutProducts(product)" style="float:right") Checkout
-
+              input(type="number" style="width:50px" value="1" min="1" v-model="orderQuantity")
+              button(v-on:click="checkoutProducts(checkoutItem)" style="float:right") Checkout
 
       i.fa.fa-home.fa-2x.text-primary
       .card-footer.text-muted UnionBank Blockchain Institute

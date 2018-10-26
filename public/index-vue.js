@@ -2,9 +2,6 @@
   var indexVue = new Vue({
     el: '#indexVue',
     data: {
-      username: null,
-      password: null,
-      userType: null,
       productName: null,
       category: null,
       price: null,
@@ -24,10 +21,15 @@
     methods: {
       buyProduct: function(product) {
         var self = this;
-        console.log(product);
-        axios.post('/api/checkout', product)
+        var checkoutProduct = {
+          id: product.id,
+          productName: product.productName,
+          price: product.price,
+          quantity: product.quantity
+        }
+        axios.post('/api/checkout', checkoutProduct)
           .then(res => {
-            console.log('test');
+            console.log(product.id);
           })
           .catch(err => {
             console.log(err);
