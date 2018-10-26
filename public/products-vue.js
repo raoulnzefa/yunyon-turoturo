@@ -30,11 +30,18 @@
         axios.post('/products', productData)
           .then(res => {
             self.products = res.data;
+            self.clear();
           })
           .catch(err => {
             console.log(err);
           });
-          location.reload();
+      },
+      clear: function() {
+        var self = this;
+        self.productName = null;
+        self.category = null;
+        self.price = null;
+        self.quantity = null;
       },
       updateProduct: function(product) {
         var self = this;
@@ -56,10 +63,10 @@
               }
             }
             self.products.splice(index, 1);
+            self.clear();
           })
           .catch(err => {
           });
-        location.reload();
       },
       saveProduct: function() {
         var self = this;
@@ -73,13 +80,13 @@
         axios.put('/products/' + id, updatedData)
           .then(res => {
             self.products = updatedData;
+            self.clear();
           })
           .catch(err => {
           });
-          location.reload();
           localStorage.clear();
       }
-    }
+    },
   });
   console.log(productVue);
 })();
