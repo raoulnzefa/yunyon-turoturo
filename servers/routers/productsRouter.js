@@ -29,10 +29,10 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id;
-  const products = store.get('products');
+  var products = store.get('products');
 
   for(let i = 0; i < products.length; i++) {
-    if(products[i].id === id) {
+    if(products[i].id == id) {
       products[i].productName = req.body.productName;
       products[i].category = req.body.category;
       products[i].price = req.body.price;

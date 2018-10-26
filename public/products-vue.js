@@ -30,14 +30,11 @@
         axios.post('/products', productData)
           .then(res => {
             self.products = res.data;
-            self.productName = null;
-            self.category = null;
-            self.price = null;
-            self.quantity = null;
           })
           .catch(err => {
             console.log(err);
           });
+          location.reload();
       },
       updateProduct: function(product) {
         var self = this;
@@ -45,23 +42,42 @@
         self.category = product.category;
         self.price = product.price;
         self.quantity = product.quantity;
+        localStorage.setItem('id', product.id);
       },
       deleteProduct: function(product) {
         var self = this;
         axios.delete('/products/' + product.id)
           .then(res => {
             var index = -1;
-            for(var i = 0; i < self.product.length; ++i) {
-              if(Number(self.product[i].id) === Number(product.id)) {
+            for(var i = 0; i < self.products.length; ++i) {
+              if(Number(self.products[i].id) === Number(product.id)) {
                 index = i;
                 break;
               }
             }
-            self.product.splice(index, 1);
+            self.products.splice(index, 1);
           })
           .catch(err => {
           });
         location.reload();
+      },
+      saveProduct: function() {
+        var self = this;
+        var id = localStorage.getItem('id');
+        var updatedData = {
+          productName: self.productName,
+          category: self.category,
+          price: self.price,
+          quantity: self.quantity
+        };
+        axios.put('/products/' + id, updatedData)
+          .then(res => {
+            self.products = updatedData;
+          })
+          .catch(err => {
+          });
+          location.reload();
+          localStorage.clear();
       }
     }
   });

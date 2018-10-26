@@ -26,6 +26,7 @@ html(lang="en")
           input.form-control#quantity(type="text" v-model="quantity")
         .form-group
           button.btn.btn-primary(type="button" v-on:click="addProduct") Add Product
+          button.btn(type="button" v-on:click="saveProduct") Save Update
       section
         table.table#productTable
           tr
@@ -44,6 +45,7 @@ html(lang="en")
             td
               button(v-on:click="deleteProduct(product)") Delete
               button(v-on:click="updateProduct(product)") Edit
+              //- button(v-on:click="saveProduct(product)") Update
 
   
   script(src="/axios.min.js")

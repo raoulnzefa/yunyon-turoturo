@@ -23,7 +23,7 @@
         var self = this;
         axios.put('/products/' + product.id)
           .then(res => {
-            
+            res.redirect('/checkout');
           })
           .catch(err => {
           });

@@ -2,7 +2,7 @@
  * Online Shop Project
  */
 const express = require('express');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
@@ -12,7 +12,7 @@ const indexRouter = require('./servers/routers/indexRouter');
 const productsRouter = require('./servers/routers/productsRouter');
 const productsAPI = require('./servers/apis/products-api');
 
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
