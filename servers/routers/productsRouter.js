@@ -48,7 +48,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
   const products = store.get('products');
-  const newProducts = products.filter(note => Number(note.id) !== Number(id));
+  const newProducts = products.filter(product => Number(product.id) !== Number(id));
 
   store.set('products', newProducts);
   res.json(newProducts);

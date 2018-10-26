@@ -1,17 +1,10 @@
 {
 	"products": [
 		{
-			"id": 6,
-			"productName": "3dsfs",
-			"price": "34",
-			"quantity": 1
-		},
-		{
 			"id": 7,
 			"productName": "df",
-			"category": "fds",
 			"price": "11",
-			"quantity": "2"
+			"quantity": 2
 		}
 	]
 }

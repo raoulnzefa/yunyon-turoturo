@@ -20,7 +20,6 @@
     },
     methods: {
       buyProduct: function(product) {
-        var self = this;
         var checkoutProduct = {
           id: product.id,
           productName: product.productName,
@@ -29,7 +28,7 @@
         }
         axios.post('/api/checkout', checkoutProduct)
           .then(res => {
-            console.log(product.id);
+            location.href = '/checkout';
           })
           .catch(err => {
             console.log(err);
