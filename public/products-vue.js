@@ -79,12 +79,12 @@
         };
         axios.put('/products/' + id, updatedData)
           .then(res => {
-            self.products = updatedData;
             self.clear();
+            location.reload();
           })
           .catch(err => {
           });
-          localStorage.clear();
+        localStorage.clear();
       }
     },
   });

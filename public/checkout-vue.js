@@ -2,10 +2,7 @@
     var checkoutVue = new Vue({
       el: '#checkoutVue',
       data: {
-        productName: null,
-        category: null,
-        price: null,
-        quantity: null,
+        orderQuantity: null,
         checkoutItems: []
       },
       created: function() {
@@ -20,23 +17,18 @@
           });
       },
       methods: {
-        buyProduct: function(product) {
+        checkoutProducts: function(checkoutItem) {
           var self = this;
-          var productData = {
-            id: product.id,
-            productName: product.productName,
-            category: product.category,
-            price: product.price,
-            quantity: product.quantity
-          };
-          axios.post('/checkout', productData)
-            .then(res => {
-              console.log(res);
-              //product.data.replace('/checkout');
-              location.replace('/checkout');
-            })
-            .catch(err => {
-            });
+          checkoutItem.orderQuantity = self.orderQuantity;
+          checkoutItem.quantity = checkoutItem.quantity - checkoutItem.orderQuantity;
+          console.log(checkoutItem.quantity);
+          axios.put('/products/' + checkoutItem.id, checkoutItem)
+          .then(res => {
+            self.clear();
+            location.reload();
+          })
+          .catch(err => {
+          });
         }
       }
     });

@@ -23,7 +23,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res) => {
     let products = store.get('checkoutItems');
     let selectedProducts = {
-      id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
+      id: req.body.id,
       productName: req.body.productName,
       category: req.body.category,
       price: req.body.price,
