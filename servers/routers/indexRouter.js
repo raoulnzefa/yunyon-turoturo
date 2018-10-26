@@ -9,10 +9,6 @@ router.get('/', function getIndexPage(req, res) {
   res.render('index.pug', viewModel);
 });
 
-router.get('/', (req, res) => {
-  res.send('Online Shop');
-});
-
 router.post('/', (req, res) => {
   // code here
 });

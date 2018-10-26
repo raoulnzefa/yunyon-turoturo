@@ -17,6 +17,17 @@
         .catch(err => {
           self.products = [];
         });
+    },
+    methods: {
+      buyProduct: function(product) {
+        var self = this;
+        axios.put('/products/' + product.id)
+          .then(res => {
+            res.redirect('/checkout');
+          })
+          .catch(err => {
+          });
+      }
     }
   });
   console.log(indexVue);
