@@ -2,6 +2,9 @@
   var indexVue = new Vue({
     el: '#indexVue',
     data: {
+      username: null,
+      password: null,
+      userType: null,
       productName: null,
       category: null,
       price: null,
@@ -21,12 +24,7 @@
     methods: {
       buyProduct: function(product) {
         var self = this;
-        axios.put('/products/' + product.id)
-          .then(res => {
-            res.redirect('/checkout');
-          })
-          .catch(err => {
-          });
+        console.log(product);
       }
     }
   });

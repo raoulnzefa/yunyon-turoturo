@@ -1,18 +1,11 @@
 {
 	"products": [
 		{
-			"id": 1,
-			"productName": "fsdfsddsfsd",
-			"category": "fsdfdsdsfds",
-			"price": "413222",
-			"quantity": "1003"
-		},
-		{
-			"id": 2,
-			"productName": "gadgadfas",
-			"category": "dasdasda",
-			"price": "332",
-			"quantity": "44"
+			"id": 4,
+			"productName": "fdsf",
+			"category": "fds",
+			"price": "111",
+			"quantity": "11"
 		}
 	]
 }
